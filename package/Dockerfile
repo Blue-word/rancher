@@ -131,7 +131,8 @@ RUN mkdir -p /usr/share/rancher/ui && \
     curl -sL https://releases.rancher.com/api-ui/${CATTLE_API_UI_VERSION}.tar.gz | tar xvzf - --strip-components=1 && \
     mkdir -p /usr/share/rancher/ui-dashboard/dashboard && \
     cd /usr/share/rancher/ui-dashboard/dashboard && \
-    curl -sL https://releases.rancher.com/dashboard/${CATTLE_DASHBOARD_UI_VERSION}.tar.gz | tar xvzf - --strip-components=2 && \
+    cp /root/v2.6.0.tar.gz /usr/share/rancher/ui-dashboard/dashboard && \
+    tar xvzf v2.6.0.tar.gz --strip-components=2 && \
     ln -s dashboard/index.html ../index.html && \
     cd ../../ui/assets && \
     curl -sfL https://github.com/rancher/system-agent/releases/download/${CATTLE_SYSTEM_AGENT_VERSION}/rancher-system-agent-arm -O && \
